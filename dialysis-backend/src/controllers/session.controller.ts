@@ -14,7 +14,9 @@ export const createSessionHandler = async (req: Request, res: Response) => {
     });
 
     res.status(201).json(session);
-  } catch (err: any) {
+  
+  } 
+  catch (err: any) {
     console.error("🔥 ERROR:", err); // 🔥 IMPORTANT
     res.status(500).json({ error: err.message });
   }
