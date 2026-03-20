@@ -1,43 +1,53 @@
-# Dialysis Session Tracker
+#  Dialysis Session Monitoring System
 
-## Tech Stack
-- Backend: Node.js, Express, MongoDB
-- Frontend: React, TypeScript
-- API: REST
+##  Project Description
 
----
+This application is a full-stack solution designed to manage and monitor dialysis sessions.  
+It enables healthcare staff (especially nurses) to:
 
-##  Features
-- Add dialysis session
-- View all sessions
-- Detect anomalies:
-  - Abnormal duration (<120 or >300 mins)
-  - High BP (>180)
-  - Weight gain (post > pre)
+- Record session data  
+- Track patient vitals  
+- Automatically detect abnormal conditions during treatment  
+
+The system focuses on simplicity while ensuring that clinically significant deviations are clearly highlighted for faster decision-making.
 
 ---
 
-##  Clinical Assumptions
-- Normal dialysis duration: 120–300 mins
-- High BP threshold: >180
-- Post weight should be less than pre weight
+##  Technology Stack
+
+- **Frontend:** React + TypeScript  
+- **Backend:** Node.js + Express (TypeScript)  
+- **Database:** MongoDB Atlas  
 
 ---
 
-##  API Endpoints
+##  System Design Overview
 
-### GET /sessions
-Fetch all sessions
+### Frontend (React)
 
-### POST /sessions
-Create a session
+- Interactive dashboard for session monitoring  
+- Forms to add patients and record sessions  
+- Visual indicators to highlight anomalies  
+- Filter option to view only abnormal sessions  
 
-Example:
-```json
-{
-  "patientId": "P001",
-  "preWeight": 70,
-  "postWeight": 68,
-  "systolicBP": 120,
-  "duration": 240
-}
+---
+
+###  Backend (Express API)
+
+- RESTful APIs for patients and sessions  
+- Business logic for anomaly detection  
+- Aggregates patient and session data for insights  
+
+---
+
+### Database (MongoDB)
+
+- **patients collection** → stores patient details  
+- **sessions collection** → stores dialysis session records  
+
+---
+
+## 🔄 Application Workflow
+
+```text
+User Interface → API Requests → Business Logic → Database → Response → UI Update
